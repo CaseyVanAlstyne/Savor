@@ -9,8 +9,7 @@ $("#mainSearchButton").on("click", function () {
 function pullApiNAMEHERE(userChoice) {
     // empty the prepended data
     $("#resultSnippet").empty();
-    var queryURL = "" + userChoice + "API KEY";
-    // trying to get Spotify for the related artist API. 
+    var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://tastedive.com/api/similar?q=" + userChoice + "364548-Savor-6DW27TB6";
     $.ajax({
         url: queryURL,
         method: "GET"
