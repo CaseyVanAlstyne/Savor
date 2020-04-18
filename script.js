@@ -17,8 +17,8 @@ function findLyrics(artistName, songTitle, outputLyrics) {
         method: "GET"
     })
         .then(function (response) {
-            console.log("current stuff", response.name);
-            var pullLyrics = response;
+            // console.log("current stuff", response.lyrics);
+            var pullLyrics = response.lyrics;
             $("#output").prepend(pullLyrics);
         })
 }
