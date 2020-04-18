@@ -1,38 +1,57 @@
-var searchButton = $("#mainSearchButton");
+var searchButton = $("#searchLyricsButton");
 
-$("#mainSearchButton").on("click", function () {
+$("#searchLyricsButton").on("click", function () {
+    var artistName = $("#artistName").val();
+    var songTitle = $("#songTitle").val();
     event.preventDefault();
-    var userChoice = searchButton.val().trim();
-    pullApiNAMEHERE(userChoice);
+    findLyrics(artistName, songTitle);
 })
 
-function pullApiNAMEHERE(userChoice) {
-    // empty the prepended data
-    $("#resultSnippet").empty();
-    var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://tastedive.com/api/similar?q=" + userChoice + "364548-Savor-6DW27TB6";
+function findLyrics(artistName, songTitle) {
+    var queryURL = "https://api.lyrics.ovh/v1/" + artistName + "/" + songTitle;
     $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (response) {
-            console.log("current stuff", response);
+            console.log(response);
             var searchName = response.name;
-            console.log(searchName);
 
-            // var weatherDiv = $("<div>");
+            // $.get("https://api.lyrics.ovh/v1/" + document.getElementById("artistName").value + "/" + document.getElementById("songTitle").value,
+            //     function (data) {
+            //         document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>")
+            //     })
 
-            // var mainContainer = $("<div>").addClass("jumbotron")
-            // var p0 = $("<div>").addClass("card").text("This is what you searched for: " + searchName);
-            // var p = $("<div>").addClass("card").text("Current Temperature: " + searchTemp);
-            // var p1 = $("<div>").addClass("card").text("It currently feels like: " + searchFeelsLike);
-            // var p2 = $("<div>").addClass("card").text("The minimum temperature is " + searchTempMin);
-            // var p3 = $("<div>").addClass("card").text("The maximum temperature is " + searchTempMax);
-            // var p4 = $("<div>").addClass("card").text("The humidity level is " + searchHumidity);
-            // var p5 = $("<div>").addClass("card").text("This is where you currently are. I need to access this information in another function/api call, but can't figure it out. " + JSON.stringify(searchLonLat));
-
-            // mainContainer.append(p0, p, p1, p2, p3, p4, p5);
-            // weatherDiv.append(mainContainer);
-
-            // $("#resultSnippet").prepend(weatherDiv);
         })
 }
+
+
+
+// function pullApi1(userInput) {
+//     var request = new XMLHttpRequest();
+//     request.open('GET', 'https://api.lyrics.ovh/v1/artist/title');
+//     request.onreadystatechange = function () {
+//         if (this.readyState === 4) {
+//             console.log('Status:', this.status);
+//             console.log('Headers:', this.getAllResponseHeaders());
+//             console.log('Body:', this.responseText);
+//         }
+//     };
+//     request.send();
+// }
+
+
+// $("#resultSnippet").empty();
+// var queryURL = "https://api.spotify.com/v1/artists/4209804dacd942ddbaff9d1a25ef22d3/related-artists";
+// $.ajax({
+//     url: queryURL,
+//     method: "GET"
+// })
+//     .then(function (results) {
+//         results.Similar.Results.forEach(function (item) {
+//             resultsArray.push(item.Name);
+//         });
+//         console.log(resultsArray);
+//     });
+// base URL for Spotify: https://api.spotify.com/v1
+// related artists for Spotify: /v1/artists/{id}/related-artists
