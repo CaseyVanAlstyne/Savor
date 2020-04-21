@@ -4,11 +4,11 @@ var resultsArray = [];
 
 // onclick function for main search button
 $("#searchLyricsButton").on("click", function () {
-    var artistName = $("#artistName").val();
-    var songTitle = $("#songTitle").val();
+    var artistName = $(".artistName").val();
+    var songTitle = $(".songTitle").val();
     event.preventDefault();
     findLyrics(artistName, songTitle);
-    callItunesAPI(artistName);
+    // callItunesAPI(artistName);
 })
 
 // function to pull information from lyrics.ovh api and display on screen
@@ -29,24 +29,24 @@ function findLyrics(artistName, songTitle, outputLyrics) {
 // function clearSavorites() {
 // }
 
-function callItunesAPI() {
-    var artist
-    for (var i = 0; i < resultsArray.length; i++) {
-        var artistNameFromArray = resultsArray[i]
-        var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistNameFromArray + "&limit=1";
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            .then(function (response) {
-                var result = JSON.parse(response).results;
-                artist = {
-                    name: result[0].artistName,
-                    genre: result[0].primaryGenreName,
-                    imageURL: result[0].artworkUrl100,
-                    songName: result[0].trackName,
-                    songURL: result[0].previewUrl
-                };
-            });
-    };
-}
+// function callItunesAPI() {
+//     var artist
+//     for (var i = 0; i < resultsArray.length; i++) {
+//         var artistNameFromArray = resultsArray[i]
+//         var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistNameFromArray + "&limit=1";
+//         $.ajax({
+//             url: queryURL,
+//             method: "GET"
+//         })
+//             .then(function (response) {
+//                 var result = JSON.parse(response).results;
+//                 artist = {
+//                     name: result[0].artistName,
+//                     genre: result[0].primaryGenreName,
+//                     imageURL: result[0].artworkUrl100,
+//                     songName: result[0].trackName,
+//                     songURL: result[0].previewUrl
+//                 };
+//             });
+//     };
+// }
