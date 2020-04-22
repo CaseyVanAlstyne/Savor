@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     // onclick function for main search button
     $("#searchLyricsButton").on("click", function () {
-        var artistName = $("#artistName").val();
-        var songTitle = $("#songTitle").val();
+        var artistName = $(".artistName").val();
+        var songTitle = $(".songTitle").val();
         event.preventDefault();
         findLyrics(artistName, songTitle);
         callItunesAPI(artistName);
@@ -28,7 +28,6 @@ $(document).ready(function () {
     }
 
     function callItunesAPI(artistName) {
-        console.log("hey i ran out of ideas")
         var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistName + "&limit=1";
         $.ajax({
             url: queryURL,
@@ -41,11 +40,14 @@ $(document).ready(function () {
                     name: result[0].artistName,
                     // genre: result[0].primaryGenreName,
                     imageURL: result[0].artworkUrl100,
+                    artistViewUrl: result[0].artistViewUrl
                     // songName: result[0].trackName,
                     // songURL: result[0].previewUrl
                 };
                 console.log("current log", result)
-                // $("#imageOutput").prepend(result);
+                console.log("this is 100", result[0].artworkUrl100)
+                console.log("this is artist view url", result[0].artistViewUrl)
+                // $("#imageOutput").prepend(artistViewUrl);
             });
     }
 })
