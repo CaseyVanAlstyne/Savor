@@ -9,7 +9,7 @@ $(document).ready(function () {
         var songTitle = $(".songTitle").val();
         event.preventDefault();
         findLyrics(artistName, songTitle);
-        callItunesAPI(artistName);
+        callItunesAPI(artistName, songTitle);
     })
 
     // function to pull information from lyrics.ovh api and display on screen
@@ -27,8 +27,8 @@ $(document).ready(function () {
             })
     }
 
-    function callItunesAPI(artistName) {
-        var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistName + "&limit=1";
+    function callItunesAPI(artistName, songTitle) {
+        var queryURL = "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistName + "/" + songTitle + "&type=songs&limit=1";
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -44,10 +44,13 @@ $(document).ready(function () {
                     // songName: result[0].trackName,
                     // songURL: result[0].previewUrl
                 };
-                console.log("current log", result)
-                console.log("this is 100", result[0].artworkUrl100)
-                console.log("this is artist view url", result[0].artistViewUrl)
-                // $("#imageOutput").prepend(artistViewUrl);
+                // console.log("current log", result)
+                // console.log("this is 100", result[0].artworkUrl100)
+                // console.log("this is artist view url", result[0].artistViewUrl)
+                $("#artistInfo").attr("href", result[0].artistViewUrl);
+                $("#imageOutput").attr("src", result[0].artworkUrl100);
+                $("#imageOutput").attr("alt", result[0].artistName);
+                $("#imageOutput").attr("alt", result[0].artistName);
             });
     }
 })
