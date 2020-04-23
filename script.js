@@ -24,9 +24,8 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       //console.log("current stuff", response.lyrics);
-      var pullLyrics = response.lyrics.replace(new RegExp("\n","g"),"<br>");
+      var pullLyrics = response.lyrics.replace(new RegExp("\n", "g"), "<br>");
       $("#outputSearch").prepend(pullLyrics);
-      // include an empty method to remove previous searches.
     });
   }
 
@@ -52,9 +51,9 @@ $(document).ready(function () {
       $("#artistInfo").attr("href", result[0].artistViewUrl);
       $("#imageOutput").attr("src", result[0].artworkUrl100);
       $("#imageOutput").attr("alt", result[0].artistName);
-      $(".artistNameInfo").text("Artist Name: "+ artist.name);
-      $(".genreNameInfo").text("Genre: "+ artist.genre);
-      $(".trackNameInfo").text("Song: "+ artist.songName);
+      $(".artistNameInfo").text("Artist Name: " + artist.name);
+      $(".genreNameInfo").text("Genre: " + artist.genre);
+      $(".trackNameInfo").text("Song: " + artist.songName);
     });
   }
 });
