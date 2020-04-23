@@ -4,6 +4,8 @@ $(document).ready(function () {
 
   // onclick function for main search button
   $("#searchLyricsButton").on("click", function () {
+    $("#lyricContainer").removeClass("hide").addClass("show");
+    $("#artistContainer").removeClass("hide").addClass("show");
     var artistName = $(".artistName").val();
     var songTitle = $(".songTitle").val();
     event.preventDefault();
@@ -21,7 +23,7 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      // console.log("current stuff", response.lyrics);
+      console.log("current stuff", response.lyrics);
       var pullLyrics = response.lyrics;
       $("#outputSearch").prepend(pullLyrics);
       // include an empty method to remove previous searches.
@@ -30,12 +32,7 @@ $(document).ready(function () {
 
   function callItunesAPI(artistName, songTitle) {
     var queryURL =
-      "https://cors-anywhere.herokuapp.com/" +
-      "https://itunes.apple.com/search?term=" +
-      artistName +
-      "/" +
-      songTitle +
-      "&type=songs&limit=1";
+      "https://cors-anywhere.herokuapp.com/" + "https://itunes.apple.com/search?term=" + artistName + "/" + songTitle + "&type=songs&limit=1";
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -55,7 +52,6 @@ $(document).ready(function () {
       // console.log("this is artist view url", result[0].artistViewUrl)
       $("#artistInfo").attr("href", result[0].artistViewUrl);
       $("#imageOutput").attr("src", result[0].artworkUrl100);
-      $("#imageOutput").attr("alt", result[0].artistName);
       $("#imageOutput").attr("alt", result[0].artistName);
     });
   }
