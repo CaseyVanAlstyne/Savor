@@ -23,8 +23,8 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log("current stuff", response.lyrics);
-      var pullLyrics = response.lyrics;
+      //console.log("current stuff", response.lyrics);
+      var pullLyrics = response.lyrics.replace(new RegExp("\n","g"),"<br>");
       $("#outputSearch").prepend(pullLyrics);
       // include an empty method to remove previous searches.
     });
@@ -37,14 +37,13 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log("hey no");
       var result = JSON.parse(response).results;
       artist = {
         name: result[0].artistName,
-        // genre: result[0].primaryGenreName,
+        genre: result[0].primaryGenreName,
         imageURL: result[0].artworkUrl100,
         artistViewUrl: result[0].artistViewUrl,
-        // songName: result[0].trackName,
+        songName: result[0].trackName,
         // songURL: result[0].previewUrl
       };
       // console.log("current log", result)
@@ -53,6 +52,9 @@ $(document).ready(function () {
       $("#artistInfo").attr("href", result[0].artistViewUrl);
       $("#imageOutput").attr("src", result[0].artworkUrl100);
       $("#imageOutput").attr("alt", result[0].artistName);
+      $(".artistNameInfo").text("Artist Name: "+ artist.name);
+      $(".genreNameInfo").text("Genre: "+ artist.genre);
+      $(".trackNameInfo").text("Song: "+ artist.songName);
     });
   }
 });
