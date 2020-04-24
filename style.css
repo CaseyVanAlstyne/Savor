@@ -1,18 +1,33 @@
 .display-4 {
-    text-align: center;
-    font-weight: 500px;
-    font-size: 70px;
+  text-align: center;
+  font-weight: 500px;
+  font-size: 70px;
 }
 
-img{
-    height: 200px;
-    
+img {
+  height: 200px;
 }
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
+body {
+  background: url(bg_3.webp) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.display-4 {
+  /* font-family: 'Righteous', cursive; */
+  /* font-family: 'Cinzel', serif; */
+
+  font-family: "Righteous", cursive;
+  font-family: "Cinzel", serif;
+  font-family: "Rock Salt", cursive;
+}
