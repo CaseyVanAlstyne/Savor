@@ -4,16 +4,20 @@ $(document).ready(function () {
 
   // onclick function for main search button
   $("#searchLyricsButton").on("click", function () {
-    $("#lyricContainer").removeClass("hide").addClass("show");
-    $("#artistContainer").removeClass("hide").addClass("show");
     var artistName = $(".artistName").val();
     var songTitle = $(".songTitle").val();
-    event.preventDefault();
-    $("#outputSearch").empty();
-    findLyrics(artistName, songTitle);
-    callItunesAPI(artistName, songTitle);
-    $("#icon_prefix").val("");
-    $("#icon_telephone").val("");
+    if (artistName === "" && songTitle === "") {
+      return;
+    } else {
+      $("#outputSearch").empty();
+      $("#lyricContainer").removeClass("hide").addClass("show");
+      $("#artistContainer").removeClass("hide").addClass("show");
+      event.preventDefault();
+      findLyrics(artistName, songTitle);
+      callItunesAPI(artistName, songTitle);
+      $("#icon_prefix").val("");
+      $("#icon_telephone").val("");
+    }
   });
 
   // function to pull information from lyrics.ovh api and display on screen
@@ -54,6 +58,7 @@ $(document).ready(function () {
       $(".artistNameInfo").text("Artist Name: " + artist.name);
       $(".genreNameInfo").text("Genre: " + artist.genre);
       $(".trackNameInfo").text("Song: " + artist.songName);
+      $("#artistInfo").text("Click here for " + artist.name + "'s information");
     });
   }
 });
