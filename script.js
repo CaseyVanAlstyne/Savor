@@ -4,17 +4,15 @@ $(document).ready(function () {
 
   // onclick function for main search button
   $("#searchLyricsButton").on("click", function () {
-    $("#lyricContainer").removeClass("hide").addClass("show");
-    $("#artistContainer").removeClass("hide").addClass("show");
     var artistName = $(".artistName").val();
     var songTitle = $(".songTitle").val();
-    event.preventDefault();
-
     if (artistName === "" && songTitle === "") {
       return;
     } else {
-      // console.log(artistName);
       $("#outputSearch").empty();
+      $("#lyricContainer").removeClass("hide").addClass("show");
+      $("#artistContainer").removeClass("hide").addClass("show");
+      event.preventDefault();
       findLyrics(artistName, songTitle);
       callItunesAPI(artistName, songTitle);
       $("#icon_prefix").val("");
