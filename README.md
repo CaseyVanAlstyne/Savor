@@ -15,8 +15,8 @@ Have you ever heard a song and thought, "What did that person just say?"? Well, 
 
 
 ## Usage
-
-<img src="Thumbnail_image.png" alt="image of application">
+<!-- 
+![picture of thumbnail](Thumbnail_image.png) -->
 
 https://caseyvanalstyne.github.io/Savor/
 
