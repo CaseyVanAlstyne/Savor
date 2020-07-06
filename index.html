@@ -1,121 +1,102 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savor - Find Your Savorite Lyrics!</title>
-
-  <!-- Bootstrap Link -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- our CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Righteous&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Righteous&family=Rock+Salt&display=swap"
-    rel="stylesheet">
-
-
-</head>
-
-<body>
-  <!-- jumbotron/search/nav -->
-  <!-- <div class="jumbotron jumbotron-fluid"> -->
-  <!-- <div class="container"> -->
-  <h1 class="display-4">Savor</h1>
-  <!-- </div> -->
-  <!-- </div> -->
-  <!-- search bar here style="background-color: #99badd; -->
-
-  <section class="container">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <!-- switch icon to artist icon -->
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" class="validate artistName">
-            <label for="icon_prefix">Artist</label>
-          </div>
-          <div class="input-field col s6">
-            <!-- switch icon to music/song -->
-            <i class="material-icons prefix">audiotrack</i>
-            <input id="icon_telephone" type="tel" class="validate songTitle">
-            <label for="icon_telephone">Song</label>
-          </div>
-          <!-- button here -->
-          <!-- <a class="waves-effect waves-light btn"><i class="material-icons right">search</i>button</a> -->
-          <a class="waves-effect waves-light btn-large red lighten-4" id="searchLyricsButton"><i
-              class="material-icons right">search</i>Search Music</a>
-
-        </div>
-      </form>
-    </div>
-  </section>
-  <!-- row 1 -->
-  <div class="container hide" id="artistContainer">
-    <div class="row">
-      <!-- where we artist picture comes up -->
-      <div class="col s12 m7">
-        <h4 class="header">Artist Information</h4>
-        <div class="card horizontal teal lighten-4">
-          <div class="card-image center-align">
-            <img id="imageOutput" src="">
-          </div>
-          <div class="card-stacked">
-            <!--card content-->
-            <div class="card-content">
-              <p class="artistInfoStyle"></p>
-              <p class="artistNameInfo"></p>
-              <p class="genreNameInfo"></p>
-              <p class="trackNameInfo"></p>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Savor - Find Your Savorite Lyrics!</title>
+      <!-- Bootstrap Link -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <!-- our CSS -->
+      <link rel="stylesheet" href="style.css">
+      <!-- google fonts -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Righteous&display=swap"
+         rel="stylesheet">
+      <link
+         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Righteous&family=Rock+Salt&display=swap"
+         rel="stylesheet">
+   </head>
+   <body>
+      <h1 class="display-4">Savor</h1>
+      <section class="container">
+         <div class="row">
+            <form class="col s12">
+               <div class="row">
+                  <div class="input-field col s6">
+                     <!-- switch icon to artist icon -->
+                     <i class="material-icons prefix">account_circle</i>
+                     <input id="icon_prefix" type="text" class="validate artistName">
+                     <label for="icon_prefix">Artist</label>
+                  </div>
+                  <div class="input-field col s6">
+                     <!-- switch icon to music/song -->
+                     <i class="material-icons prefix">audiotrack</i>
+                     <input id="icon_telephone" type="tel" class="validate songTitle">
+                     <label for="icon_telephone">Song</label>
+                  </div>
+                  <!-- button here -->
+                  <a class="waves-effect waves-light btn-large red lighten-4" id="searchLyricsButton"><i
+                     class="material-icons right">search</i>Search Music</a>
+               </div>
+            </form>
+         </div>
+      </section>
+      <!-- row 1 -->
+      <div class="container hide" id="artistContainer">
+         <div class="row">
+            <!-- artist picture -->
+            <div class="col s12 m7">
+               <h4 class="header">Artist Information</h4>
+               <div class="card horizontal teal lighten-4">
+                  <div class="card-image center-align">
+                     <img id="imageOutput" src="">
+                  </div>
+                  <div class="card-stacked">
+                     <!--card content-->
+                     <div class="card-content">
+                        <p class="artistInfoStyle"></p>
+                        <p class="artistNameInfo"></p>
+                        <p class="genreNameInfo"></p>
+                        <p class="trackNameInfo"></p>
+                     </div>
+                     <div class="card-action">
+                        <a id="artistInfo" href="#"></a>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="card-action">
-              <a id="artistInfo" href="#"></a>
-            </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </div>
-  <!-- row 2 -->
-  <div class="container hide" id="lyricContainer">
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <div class="col s12 m5">
-            <div class="card-panel teal lighten-4">
-              <span class="black-text">
-                <h4>Lyrics</h4>
-                <!-- keep in mind: code in javascript lyrics format... -->
-                <p id="outputSearch"></p>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- row 3 -->
-    <div class="container">
+      <!-- row 2 -->
+      <div class="container hide" id="lyricContainer">
       <div class="row">
-        <div class="col s12">
-          <!-- where savorites are stored -->
-        </div>
+         <div class="col s12">
+            <div class="row">
+               <div class="col s12 m5">
+                  <div class="card-panel teal lighten-4">
+                     <span class="black-text">
+                        <h4>Lyrics</h4>
+                        <!-- Coding in javascript lyrics format -->
+                        <p id="outputSearch"></p>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
+      <!-- row 3 -->
+      <div class="container">
+         <div class="row">
+            <div class="col s12">
+            </div>
+         </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="script.js"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   </body>
 </html>
