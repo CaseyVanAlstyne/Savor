@@ -16,7 +16,7 @@ img {
 }
 
 body {
-  background: url(bg_3.webp) no-repeat center center fixed;
+  background: url(backgroundimage.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;

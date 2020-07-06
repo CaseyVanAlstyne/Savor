@@ -11,14 +11,12 @@ Have you ever heard a song and thought, "What did that person just say?"? Well, 
 
 * [Technology](#Technology)
 
-* [License](#license)
-
-* [Contributing](#contributing)
-
 * [Questions](#questions)
 
 
 ## Usage
+
+<img src="Thumbnail_image.png" alt="image of application">
 
 https://caseyvanalstyne.github.io/Savor/
 
@@ -26,15 +24,6 @@ Enter the artist and song and the lyrics and artist information will appear.
 
 ## Technology
 In this app we are using Materialize, HTML, JavaScript, JQuery, CSS, Itunes API, and lyrics.ovh API.
-
-## License
- This project is licensed under ![badge](https://img.shields.io/badge/License-MIT-blue).
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
 
 ## Questions
 
